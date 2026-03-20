@@ -7,7 +7,7 @@ COUNTER=1
 
 for i in `cat $USERS`
 do
-echo $COUNTER"/"$TOTAL" : "$I
+echo $COUNTER"/"$TOTAL" : "$i
 givenName=$(grep givenName: $USERDATA/$i.txt | cut -d ":" -f2)
 displayName=$(grep displayName: $USERDATA/$i.txt | cut -d ":" -f2)
 shadowpass=$(cat $USERPASS/$i.shadow)
