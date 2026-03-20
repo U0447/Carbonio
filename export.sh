@@ -6,7 +6,7 @@ COUNTER=1
 while read -r i; do
 echo "$i"
 
-echo $COUNTER"/"$TOTAL" : "$I
+echo $COUNTER"/"$TOTAL" : "$i
 out="$(z mprov -l ga $i |grep -Ei '(userPassword|Name:|zimbraAccountStatus:|zimbraPrefMailForwardingAddress:)')"
 
 awk '/^userPassword: / {print $2}' <<< "$out" > "userpass/$i.shadow"
