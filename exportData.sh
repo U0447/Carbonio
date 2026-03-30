@@ -2,10 +2,10 @@
 contador=1
 total=$(cat emails.txt | wc -l)
 
-while read -r i; do
+for email in `cat /opt/backups/migrate/emails.txt`
+do 
 echo $contador"/"$total": "$i
-
-zmmailbox -z -m $i -t 0 getRestURL '/?fmt=tgz' > /opt/backup/migrate/MBOX&/$i.tgz
-
+zmmailbox -z -m $email -t 0 getRestURL '/?fmt=tgz' > /opt/backups/migrate/MBOX/$email.tgz 
 ((contador++))
-done < emails.txt
+
+done
